@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Algorithms_6_Dragon_Game</title>
+</head>
+<body>
+	<h1 align = center>Welcome to the Dragon Dungeon</h1>
+		<div id ="firstmove"></div>
+
+
+
+
+<script>
+
+var firstmessage = prompt("You are in a room. There are exits to the north and west. You can hear loud noises and feel heat coming from the north. To the west, the room is quiet. Which direction do you choose?");
+	if(firstmessage === "North"){
+		var secondattempt = prompt("A fire breathing dragon stares down at you. You need a shield to pass! Go back?");
+			if(secondattempt === "Yes"){
+				var thirdattempt = prompt("You have returned to the main room. Go west?")
+				if(thirdattempt === "Yes"){
+					var fourthattempt = prompt("A treasure chest stands in the middle of the room. You move to open it. Congratulations! You've secured the shield. Return to main room?")
+					if(fourthattempt === "Yes"){
+				var advance2 = prompt("It is time to advance on the dragon. Move north?")
+			}
+				if(advance2 === "Yes" ){
+					var dragon = prompt("You confront the dragon! As the beast spits fire you raise your shield and run to the north door. Safety and Victory!")
+					}
+				}
+			}else{
+				document.getElementById("firstmove").innerHTML = "You have been charred by the dragon. Game Over."
+			}
+	} else if(firstmessage === "West"){
+		var shield = prompt("A treasure chest stands in the middle of the room. You move to open it. Congratulations! You've secured the shield. Return to main room?")
+			if(shield === "Yes"){
+				var advance = prompt("It is time to advance on the dragon. Move north?")
+			}
+				if(advance === "Yes" ){
+					var dragon = prompt("You confront the dragon! As the beast spits fire you raise your shield and run to the north door. Safety and Victory!")
+				}
+	} else {
+		document.getElementById("firstmove").innerHTML = ("Enter West or North");
+	}
+
+
+
+
+
+</script>
+</body>
+</html>

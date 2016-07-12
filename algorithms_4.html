@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Algorithm_4</title>
+</head>
+<body>
+
+
+
+
+<script>
+
+		/* var userNum = prompt("Enter in a seven-digit number:");
+
+		var finalString = ""
+
+
+		for(var i = 0; i < userNum.length; i++){
+
+			// If we are at the first character, we don't need
+			// to check the next char, we just need to add it to
+			// the string, and skip to the next iteration of the loop.
+
+
+			if(userNum.charAt(i)) {
+
+
+			}
+		}
+
+		console.log(finalString);
+
+*/
+
+var userNum = prompt("Enter in a seven-digit number:");
+var finalString = ""
+
+console.log("Original number: ", userNum);
+
+for(i = 0; i < userNum.length; i++){
+
+	// If less than 7 characters, exit with message:
+
+	if ( userNum.length < 7 ) {
+		finalString = "You must use at least 7 numbers."
+		break;
+	}
+
+	// If user does not input all numbers:
+
+	if ( isNaN(userNum.charAt(i)) == true ) {
+		console.log("You must use numbers.");
+		continue;
+	}
+
+	// If first character is zero, add just that character then skip to next character:
+
+	if ( i == 0 ) {
+		finalString = finalString.concat(userNum.charAt(i));
+		continue;
+	}
+
+	// If last character and current character are odd, place - between them:
+
+	if ((userNum.charAt(i-1)%2 == 1) && (userNum.charAt(i)%2 == 1)) {
+		finalString += "-";
+		finalString = finalString.concat(userNum.charAt(i));
+		continue;
+	}
+
+	// If all else fails, still append the current character: 
+
+	finalString = finalString.concat(userNum.charAt(i));
+}
+
+console.log(finalString);
+
+
+
+
+
+</script>
+
+</body>
+</html>

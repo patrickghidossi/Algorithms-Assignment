@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Algorithms_5</title>
+</head>
+<body>
+
+	<div id="UserGuess">
+		<h2> Think of a number between 1-100. The computer will attempt to guess your number.</h2>
+	</div>
+	<div id="Finish"></div>
+
+
+<script>
+			/* Long Way
+
+			var num = 0
+			var correctNum = 0
+			var userAns = prompt("Is your number 50? If this is too high, enter H. If it is too low, enter L. If this is correct, enter Y.");
+
+			if(userAns == "H"){
+				correctNum = prompt("Is your number 75? If this is too high, enter H. If it is too low, enter L. If this is correct, enter Y.")
+					if(correctNum == "H"){
+						correctNum = prompt("Is your number 88? If this is too high, enter H. If it is too low, enter L. If this is correct, enter Y.")
+					}else if(correctNum == "L"){
+						correctNum = prompt("Is your number 63? If this is too high, enter H. If it is too low, enter L. If this is correct, enter Y.")
+					}else if (correctNum == "Y"){
+						document.getElementById('Congrats').innerHTML = "75!"
+					}else{
+						document.getElementById('UserGuess').innerHTML = "You must enter H, L, or Y. Refresh the page."
+					}
+			}else if(userAns == "L"){
+				correctNum = prompt("Is your number 25? If this is too high, enter H. If it is too low, enter L. If this is correct, enter Y. ")
+					if(correctNum == "H"){
+						correctNum = prompt("Is your number 38? If this is too high, enter H. If it is too low, enter L. If this is correct, enter Y.")
+						if(correctNum == "H"){
+							correctNum = prompt("Is your number 44? If this is too high, enter H. If it is too low, enter L. If this is correct, enter Y.")
+						}
+					}else if(correctNum == "L"){
+						correctNum = prompt("Is your number 13? If this is too high, enter H. If it is too low, enter L. If this is correct, enter Y.")
+					}else if(correctNum == "Y"){
+						document.getElementById('Congrats').innerHTML = "25!"
+					}else{
+						document.getElementById('UserGuess').innerHTML = "You must enter H, L, or Y. Refresh the page."
+					}
+			}else if(userAns == "Y"){
+				document.getElementById('Congrats').innerHTML = "50!"
+			}else{
+				document.getElementById('UserGuess').innerHTML = "You must enter H, L, or Y. Refresh the page."
+			}
+
+
+			And so on, and so on.
+
+			*/
+
+			//For Loop Way
+
+		/*
+			var correctNum = 0
+			var response = ["H", "L", "Y"]
+			var userAns = prompt("Is your number 50? If this is too high, enter H. If it is too low, enter L. If this is correct, enter Y.");
+			
+
+			for(var num = 0; num >= 1 && num <= 100; num % 2){
+				if(userAns == "H"){
+				correctNum = prompt(["Is your number 75? If this is too high, enter H. If it is too low, enter L. If this is correct, enter Y."])
+				}else if(userAns == "L"){
+						correctNum = prompt("Is your number 25? If this is too high, enter H. If it is too low, enter L. If this is correct, enter Y.")
+				}else if (userAns == "Y"){
+						document.getElementById('Congrats').innerHTML = "Got it!"
+				}else{
+						document.getElementById('UserGuess').innerHTML = "You must enter H, L, or Y. Refresh the page"
+				}
+			}	
+ 			
+ 			document.getElementById("Finish").innerHTML = correctNum
+
+		*/
+			//Final Way
+
+			var min = 0;
+			var max = 101;
+			var won = false;
+
+			while(!won){
+				var guess = Math.floor((max + min) / 2);
+				var validResponse = false;
+				while(!validResponse) {
+					var response = prompt("Is " + guess + " High or Low?").toUpperCase();
+			if (response == "H" || response == "L" || response == "Y") {
+				validResponse = true;
+				}
+			}
+				if (max == 0 || min == 101) {
+					won = true;
+					prompt("Hey! it's supposed to be between 1 and 100!")
+				}			
+// if the number is too high, update max to our new number
+				if (response == "H") {
+					max = guess + 1;
+				}
+// if the number is too low, update min to our new number
+				else if (response == "L") {
+					min = guess;
+				}
+
+				else {
+					won = true;
+				}
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Algorithm_3</title>
+</head>
+<body>
+
+
+
+
+<div id='show'></div>
+
+<script>
+		
+		// var fib1 = 1
+		var fib2 = 1 
+		var fibTmp = 0
+		var sum = 0
+		
+		// For Loop where fib1 starts at 1, and fib2 does not exceed 2,000,001. 
+
+		for(var fib1 = 1; fib2 <2000001;){
+
+			// If fib2 is even, add it to the sum
+
+			if(fib2 % 2 == 0) {
+			sum = sum + fib2
+			}
+
+			// Increment the fibs
+
+			fibTmp = fib2
+			fib2 = fib1 + fib2
+			fib1 = fibTmp
+
+		
+		}
+
+		document.getElementById('show').innerHTML = sum;
+
+
+
+</script>
+</body>
+</html>
